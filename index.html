@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- ── SEO ── -->
+    <title>Mayank Garg — Full Stack & AI Developer</title>
+    <meta name="description"
+      content="Mayank Garg — Full Stack Developer & AI/GenAI Engineer. MERN stack, Deep Learning, open to internships and freelance." />
+    <meta name="keywords"
+      content="Mayank Garg, Full Stack Developer, React, Node.js, AI, GenAI, MERN, portfolio" />
+    <meta name="author" content="Mayank Garg" />
+    <meta name="robots" content="index, follow" />
+
+    <!-- ── Open Graph ── -->
+    <meta property="og:title"       content="Mayank Garg — Full Stack & AI Developer" />
+    <meta property="og:description" content="MERN Stack · GenAI · Open to internships & freelance" />
+    <meta property="og:type"        content="website" />
+    <meta property="og:url"         content="https://mayankgarg.dev" />
+    <meta property="og:image"       content="https://mayankgarg.dev/og-image.png" />
+
+    <!-- ── Theme / PWA ── -->
+    <meta name="theme-color" content="#040406" />
+    <meta name="color-scheme" content="dark" />
+
+    <!-- ── Favicon ── -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <!--
+      ══════════════════════════════════════════════════════════════
+      FONT LOADING STRATEGY — 3-step for zero render blocking
+
+      Step 1: dns-prefetch — resolves DNS for Google's servers
+              Free, instant, no round-trips needed
+      Step 2: preconnect — establishes TCP + TLS to both Google servers
+              Must happen before any font request
+      Step 3: preload — fetches the font CSS immediately as high-priority
+              rel="preload" as="style" → browser fetches it in parallel
+              with HTML parsing, not after
+      Step 4: stylesheet — the actual link, now uses onload trick
+              so it never blocks rendering. Falls back via <noscript>.
+
+      Result: fonts are ready before first paint on fast connections,
+              and text shows in fallback font (display=swap) instantly
+              on slow connections. Zero render blocking either way.
+      ══════════════════════════════════════════════════════════════
+    -->
+
+    <!-- Step 1 — DNS -->
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
+
+    <!-- Step 2 — Preconnect (establish TLS early) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <!--
+      Step 3 — Preload the font CSS as high priority
+      Only the weights actually used:
+        Syne: 700 (nav logo), 800 (hero name, headings)
+              600 was never actually needed — removed to save a request
+        DM Sans: 400 (body), 500 (slightly heavier body)
+    -->
+    <link rel="preload" as="style"
+      href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:opsz,wght@9..40,400;9..40,500&display=swap" />
+
+    <!--
+      Step 4 — Non-blocking stylesheet load
+      media="print" trick: browser fetches this without blocking render.
+      onload switches it to "all" so it applies once ready.
+    -->
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:opsz,wght@9..40,400;9..40,500&display=swap"
+      media="print"
+      onload="this.media='all'"
+    />
+
+    <!-- Fallback for no-JS (loads synchronously — acceptable, these users have bigger problems) -->
+    <noscript>
+      <link
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:opsz,wght@9..40,400;9..40,500&display=swap"
+      />
+    </noscript>
+
+    <!--
+      Inline critical CSS — prevents FOUC (flash of unstyled content).
+      Body background and font-family set before any JS runs.
+      This is the minimum needed to prevent white flash on load.
+    -->
+    <style>
+      *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+      html { scroll-behavior: smooth; color-scheme: dark; }
+      body {
+        background: #040406;
+        font-family: 'DM Sans', system-ui, -apple-system, sans-serif;
+        color: #ffffff;
+        overflow-x: hidden;
+      }
+      /* Prevent layout shift from scrollbar appearing */
+      body { scrollbar-gutter: stable; }
+      /* Fallback font stack matching Syne metrics to reduce layout shift */
+      h1, h2, h3, button, .syne-font {
+        font-family: 'Syne', 'Arial Black', system-ui, sans-serif;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>

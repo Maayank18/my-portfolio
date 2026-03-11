@@ -1,38 +1,134 @@
-.App {
-  text-align: center;
+/*
+ * App.css — Performance-optimised
+ *
+ * CHANGES vs original:
+ * 1. Added @keyframes particleFloat — replaces 16 framer-motion animate loops
+ *    (16 JS-driven 60fps loops → 1 GPU-composited CSS animation reused 16×)
+ * 2. Added @keyframes dotPulse + cursorBlink — moves them out of inline style
+ *    strings where they can't be cached or reused
+ * 3. Added will-change hints on scroll-progress — tells GPU to composite early
+ * 4. Added contain: layout style on section elements — reduces layout recalc scope
+ */
+
+/* ──────────────────────────────────────────────────
+   PARTICLE FLOAT
+   Replaces framer-motion animate={{ y:[0,-24,0], opacity:[0,0.7,0] }}
+   GPU-composited: only transform + opacity, both on compositor thread
+   Zero JS overhead after first paint
+────────────────────────────────────────────────── */
+@keyframes particleFloat {
+  0%   { transform: translateY(0);     opacity: 0;   }
+  20%  { opacity: 0.7; }
+  50%  { transform: translateY(-24px); opacity: 0.7; }
+  80%  { opacity: 0.7; }
+  100% { transform: translateY(0);     opacity: 0;   }
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/* ──────────────────────────────────────────────────
+   CURSOR BLINK  (was inline: animation: "cursorBlink 1.1s step-end infinite")
+   Moving to CSS: browser can cache and deduplicate this rule
+────────────────────────────────────────────────── */
+@keyframes cursorBlink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0; }
+}
+.cursor-blink {
+  animation: cursorBlink 1.1s step-end infinite;
+  will-change: opacity;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+/* ──────────────────────────────────────────────────
+   DOT PULSE  (was inline: animation: "dotPulse 1.8s ease-in-out infinite")
+────────────────────────────────────────────────── */
+@keyframes dotPulse {
+  0%, 100% { transform: scale(1);   box-shadow: 0 0 6px #4ade80; }
+  50%       { transform: scale(1.4); box-shadow: 0 0 14px #4ade80; }
+}
+.dot-pulse {
+  animation: dotPulse 1.8s ease-in-out infinite;
+  will-change: transform, box-shadow;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+/* ──────────────────────────────────────────────────
+   SPINNER  (section loader)
+────────────────────────────────────────────────── */
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+.spinner {
+  animation: spin 0.9s linear infinite;
+  will-change: transform;
 }
 
-.App-link {
-  color: #61dafb;
+/* ──────────────────────────────────────────────────
+   SCROLL PROGRESS BAR
+   will-change: transform here ensures the browser promotes this element
+   to its own GPU layer immediately on page load, not on first scroll event.
+   Without this, the first scroll causes a layer promotion jank frame.
+────────────────────────────────────────────────── */
+#scroll-progress {
+  position:        fixed;
+  top:             0;
+  left:            0;
+  right:           0;
+  height:          2px;
+  background:      linear-gradient(90deg, #f5ff40, #00d4ff, #ff3cac);
+  z-index:         9999;
+  transform-origin: left center;
+  will-change:     transform;           /* GPU layer promoted on load */
+  box-shadow:      0 0 10px rgba(245,255,64,0.6);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* ──────────────────────────────────────────────────
+   SECTION PERFORMANCE HINT
+   contain: layout — tells browser "this section's layout doesn't affect
+   elements outside it". Limits layout recalc scope, speeds up re-paints
+   when inner content changes (e.g. modal opens, filter tab switches).
+────────────────────────────────────────────────── */
+section {
+  contain: layout;
+}
+
+/* ──────────────────────────────────────────────────
+   SHIMMER (kept from original, used in other sections)
+────────────────────────────────────────────────── */
+@keyframes shimmer {
+  0%   { background-position: -200% center; }
+  100% { background-position:  200% center; }
+}
+
+/* ──────────────────────────────────────────────────
+   GENERAL UTILITIES
+────────────────────────────────────────────────── */
+
+/* Scrollbar */
+::-webkit-scrollbar       { width: 4px; }
+::-webkit-scrollbar-track { background: #040406; }
+::-webkit-scrollbar-thumb {
+  background:    linear-gradient(180deg, #f5ff40, #00d4ff);
+  border-radius: 4px;
+}
+
+/* Text selection */
+::selection {
+  background: rgba(245,255,64,0.25);
+  color: #fff;
+}
+
+/* Remove tap highlight on mobile (cosmetic but feels faster) */
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Smooth scrolling — hardware-accelerated on modern browsers */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin:     0;
+  background: #040406;
+  overflow-x: hidden;
+  /* Prevent invisible reflow from scrollbar appearing/disappearing */
+  scrollbar-gutter: stable;
 }

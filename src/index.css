@@ -1,13 +1,185 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@import url("https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ===========================
+   DESIGN TOKENS - BLACK + NEON THEME
+   =========================== */
+:root {
+  color-scheme: dark;
+
+  /* Core backgrounds — pure black family */
+  --bg:           #040406;
+  --bg-elevated:  #08080d;
+  --bg-card:      #0a0a12;
+  --bg-glass:     rgba(8, 8, 13, 0.75);
+
+  /* Neon accents */
+  --yellow:       #f5ff40;        /* neon yellow-green */
+  --yellow-soft:  #e8f500;
+  --yellow-dim:   rgba(245,255,64,0.65);
+  --blue:         #00d4ff;        /* electric blue     */
+  --blue-soft:    #38e8ff;
+  --pink:         #ff3cac;        /* hot pink pop      */
+
+  /* Glows */
+  --glow-y:       rgba(245,255,64,0.18);
+  --glow-b:       rgba(0,212,255,0.15);
+  --glow-p:       rgba(255,60,172,0.18);
+
+  /* Text */
+  --text-1:       #ffffff;
+  --text-2:       #c8d0e0;
+  --text-3:       #8892b0;
+  --text-4:       #3d4560;
+
+  /* Borders */
+  --border-y:     rgba(245,255,64,0.14);
+  --border-b:     rgba(0,212,255,0.14);
+  --border-w:     rgba(255,255,255,0.07);
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+/* ===========================
+   BASE
+   =========================== */
+html { scroll-behavior: smooth; }
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: "DM Sans", sans-serif;
+  background: var(--bg);
+  color: var(--text-1);
+  overflow-x: hidden;
+  /* Subtle noise grain */
+  background-image:
+    radial-gradient(ellipse 90% 50% at 50% -20%, rgba(245,255,64,0.04) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 40% at 90% 10%,  rgba(0,212,255,0.04) 0%, transparent 55%);
+}
+
+/* ===========================
+   SCROLLBAR
+   =========================== */
+::-webkit-scrollbar       { width: 4px; }
+::-webkit-scrollbar-track { background: #040406; }
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, var(--yellow), var(--blue));
+  border-radius: 4px;
+}
+
+/* ===========================
+   SELECTION
+   =========================== */
+::selection {
+  background: rgba(245,255,64,0.25);
+  color: #000;
+}
+
+/* ===========================
+   UTILITY CLASSES
+   =========================== */
+.line-clamp-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Gradient texts */
+.text-grad-y {
+  background: linear-gradient(135deg, var(--yellow), var(--blue));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.text-grad-b {
+  background: linear-gradient(135deg, var(--blue), var(--yellow));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.text-grad-hero {
+  background: linear-gradient(120deg, #ffffff 0%, #f5ff40 40%, #00d4ff 80%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Glass card */
+.glass {
+  background: var(--bg-glass);
+  border: 1px solid var(--border-y);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+}
+
+/* Glow line divider */
+.glow-line {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--yellow) 30%, var(--blue) 70%, transparent);
+  opacity: 0.3;
+}
+
+/* Neon underline decoration */
+.neon-underline {
+  width: 56px;
+  height: 3px;
+  border-radius: 99px;
+  background: linear-gradient(90deg, var(--yellow), var(--blue));
+  box-shadow: 0 0 12px var(--yellow), 0 0 24px rgba(245,255,64,0.3);
+}
+
+/* Section label pill */
+.section-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 4px 14px;
+  border-radius: 100px;
+  border: 1px solid rgba(245,255,64,0.22);
+  background: rgba(245,255,64,0.05);
+  font-family: "Syne", sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--yellow-dim);
+}
+
+/* Dot grid bg */
+.dot-grid {
+  background-image: radial-gradient(circle, rgba(245,255,64,0.12) 1px, transparent 1px);
+  background-size: 36px 36px;
+}
+
+/* Skill bar */
+.skill-track {
+  height: 3px;
+  border-radius: 99px;
+  background: rgba(255,255,255,0.05);
+  overflow: hidden;
+}
+.skill-fill {
+  height: 100%;
+  border-radius: 99px;
+  background: linear-gradient(90deg, var(--yellow), var(--blue));
+  box-shadow: 0 0 8px rgba(245,255,64,0.5);
+}
+
+/* Scroll progress bar */
+#scroll-progress {
+  position: fixed;
+  top: 0; left: 0;
+  height: 2px;
+  width: 100%;
+  background: linear-gradient(90deg, var(--yellow), var(--blue), var(--pink));
+  transform-origin: left;
+  z-index: 9999;
+  box-shadow: 0 0 12px rgba(245,255,64,0.7);
 }
