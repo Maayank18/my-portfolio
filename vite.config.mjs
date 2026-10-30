@@ -1,25 +1,10 @@
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
-import compression from "vite-plugin-compression";
 import { fileURLToPath } from "node:url";
 
 export default defineConfig({
   plugins: [
     react(),
-
-    // Gzip compression
-    compression({
-      algorithm: "gzip",
-      ext: ".gz",
-      threshold: 1024,
-    }),
-
-    // Brotli compression
-    compression({
-      algorithm: "brotliCompress",
-      ext: ".br",
-      threshold: 1024,
-    }),
   ],
 
   define: {
