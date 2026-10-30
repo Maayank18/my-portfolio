@@ -9,7 +9,7 @@ import React, { useRef, useMemo, Suspense } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
 import * as THREE from "three";
 
-/* ═══ NEURAL NET (AI / ML) ═══ */
+/* ═══ NEURAL NET (AI Engineering) ═══ */
 function NeuralNet() {
   const groupRef = useRef();
   const nodes = useMemo(() => [
@@ -163,7 +163,7 @@ function DefaultScene() {
 }
 
 const SCENE_MAP = {
-  "AI / ML":    NeuralNet,
+  "AI Engineering": NeuralNet,
   "Full Stack": TorusKnot,
   "Frontend":   Crystal,
 //   "Data":       DataOrbit,

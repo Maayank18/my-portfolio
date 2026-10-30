@@ -74,11 +74,11 @@ function useWindowDimensions() {
    TYPEWRITER — pure ref, zero re-render cascade
 ═══════════════════════════════════════════════════════════════════ */
 const ROLES = [
-  "Full-Stack Developer",
-  "AI / GenAI Engineer",
-  "MERN Stack Builder",
-  "Deep Learning Explorer",
-  "Creative Technologist",
+  "AI Software Engineer",
+  "Backend & Systems Architect",
+  "Autonomous Agent Engineer",
+  "MERN & Realtime Systems Builder",
+  "Core CS & Systems Specialist",
 ];
 
 function useTypewriter(words) {
@@ -587,9 +587,9 @@ const HeroSection = () => {
             style={{ display: "flex", gap: "clamp(18px,5vw,36px)", flexWrap: "wrap" }}
           >
             {[
-              { val: "30+",   sub: "Projects"  },
-              { val: "MERN",  sub: "Stack"     },
-              { val: "GenAI", sub: "Developer" },
+              { val: "30+",     sub: "Projects" },
+              { val: "Backend", sub: "Engineering" },
+              { val: "AI",      sub: "Software Engineer" },
             ].map(({ val, sub }) => (
               <div key={sub} style={{ display: "flex", flexDirection: "column", gap: 3 }}>
                 <span style={{

@@ -307,8 +307,8 @@
 //                 </p>
 //                 {[
 //                   { label: "Frontend", pct: 88, color: "#f5ff40" },
-//                   { label: "Backend",  pct: 84, color: "#00d4ff" },
-//                   { label: "AI / ML",  pct: 80, color: "#ff3cac" },
+//                   { label: "Backend",  pct: 95, color: "#00d4ff" },
+//                   { label: "AI Engineering", pct: 93, color: "#f5ff40" },
 //                 ].map(({ label, pct, color }) => (
 //                   <div key={label} style={{ marginBottom: 12 }}>
 //                     <div style={{ display: "flex", justifyContent: "space-between", marginBottom: 5 }}>
@@ -817,9 +817,9 @@ import { skillCategories, personalInfo, socialLinks } from "../data/mock";
    REACT_APP_EMAILJS_TEMPLATE_ID=template_xxxxxxx
    REACT_APP_EMAILJS_PUBLIC_KEY=aBcDeFgHiJkLmNoPqR
 */
-const EMAILJS_SERVICE_ID  = process.env.REACT_APP_EMAILJS_SERVICE_ID  || "service_xxxxxxx";
-const EMAILJS_TEMPLATE_ID = process.env.REACT_APP_EMAILJS_TEMPLATE_ID || "template_xxxxxxx";
-const EMAILJS_PUBLIC_KEY  = process.env.REACT_APP_EMAILJS_PUBLIC_KEY  || "aBcDeFgHiJkLmNoPqR";
+const EMAILJS_SERVICE_ID  = import.meta.env.VITE_EMAILJS_SERVICE_ID || import.meta.env.REACT_APP_EMAILJS_SERVICE_ID || (typeof process !== "undefined" && process.env?.REACT_APP_EMAILJS_SERVICE_ID) || "service_xxxxxxx";
+const EMAILJS_TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID || import.meta.env.REACT_APP_EMAILJS_TEMPLATE_ID || (typeof process !== "undefined" && process.env?.REACT_APP_EMAILJS_TEMPLATE_ID) || "template_xxxxxxx";
+const EMAILJS_PUBLIC_KEY  = import.meta.env.VITE_EMAILJS_PUBLIC_KEY || import.meta.env.REACT_APP_EMAILJS_PUBLIC_KEY || (typeof process !== "undefined" && process.env?.REACT_APP_EMAILJS_PUBLIC_KEY) || "aBcDeFgHiJkLmNoPqR";
 
 /* ─── Responsive hook ─── */
 function useWindowWidth() {
@@ -1081,9 +1081,10 @@ export const SkillsSection = () => {
                   Overall Proficiency
                 </p>
                 {[
-                  { label: "Frontend", pct: 88, color: "#f5ff40" },
-                  { label: "Backend",  pct: 84, color: "#00d4ff" },
-                  { label: "AI / ML",  pct: 80, color: "#ff3cac" },
+                  { label: "Backend Engineering",      pct: 95, color: "#00d4ff" },
+                  { label: "AI Engineering & Agents",  pct: 93, color: "#f5ff40" },
+                  { label: "Core Software Eng.",       pct: 90, color: "#a855f7" },
+                  { label: "Frontend & UI Systems",    pct: 83, color: "#4ade80" },
                 ].map(({ label, pct, color }) => (
                   <div key={label} style={{ marginBottom: 12 }}>
                     <div style={{ display: "flex", justifyContent: "space-between", marginBottom: 5 }}>
@@ -1497,7 +1498,7 @@ export const Footer = () => (
           {personalInfo.name.toUpperCase()}
         </div>
         <div style={{ fontFamily: "'DM Sans',sans-serif", fontSize: 11, color: "#3d4560", marginTop: 2 }}>
-          Full Stack · AI/GenAI · Open to Opportunities
+          AI Software Engineer · Backend Systems · Open to Opportunities
         </div>
       </div>
 

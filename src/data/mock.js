@@ -1,326 +1,19 @@
-// export const personalInfo = {
-//   name: "Mayank Garg",
-//   firstName: "Mayank",
-//   headline: "Building What Matters.",
-//   subtitle: "Full Stack Engineer · AI/GenAI Developer · Creative Builder",
-//   bio:
-//     "I engineer intelligent, production-ready systems at the intersection of full-stack development and AI. From MERN-powered platforms to generative AI pipelines, I turn complex problems into elegant, impactful solutions.",
-
-//   media: {
-//     type: "video",
-//     sources: [
-//       { src: "/part1.webm", type: "video/webm" },
-//       { src: "/part1.mp4",  type: "video/mp4"  },
-//     ],
-//     poster:   "/hero-poster.jpg",
-//     playOnce: "load",
-//   },
-
-//   portrait: "/hero-poster.jpg",
-
-//   email:    "gargmayank1805@gmail.com",
-//   github:   "https://github.com/Maayank18",
-//   linkedin: "https://www.linkedin.com/in/mayank-garg-120a77214/",
-//   resume:   "#",
-// };
-
-// /* ─── FILTER CATEGORIES (shown as tabs) ─── */
-// export const filterCategories = ["All", "AI / ML", "Full Stack", "Frontend", "Data", "Design", "Mobile"];
-
-// /* ─── PROJECTS ─── */
-// export const projects = [
-//   {
-//     id: 1,
-//     title: "CodeArena 1v1",
-//     shortDesc: "AI-powered chatbot communication platform",
-//     description:
-//       "Built a sophisticated AI chatbot platform that leverages natural language processing to provide intelligent customer support with real-time analytics and seamless CRM integration.",
-//     techStack: ["React", "Node.js", "Python", "OpenAI", "MongoDB"],
-//     liveUrl:   "#",
-//     sourceUrl: "#",
-//     category:  "AI / ML",
-//   },
-//   {
-//     id: 2,
-//     title: "E-Commerce Dashboard",
-//     shortDesc: "Modern full-stack e-commerce platform",
-//     description:
-//       "Designed and developed a complete e-commerce system with Stripe integration, real-time inventory, and smart recommendation engine.",
-//     techStack: ["Next.js", "TypeScript", "Stripe", "PostgreSQL", "AWS"],
-//     liveUrl:   "#",
-//     sourceUrl: "#",
-//     category:  "Full Stack",
-//   },
-//   {
-//     id: 3,
-//     title: "The Coding Triathlon 2026",
-//     shortDesc: "Hackathon event promotional website",
-//     description:
-//       "Created an immersive promotional website featuring 3D scroll animations, live countdown timers, and a full registration system.",
-//     techStack: ["React", "Three.js", "GSAP", "Firebase"],
-//     liveUrl:   "#",
-//     sourceUrl: "#",
-//     category:  "Frontend",
-//   },
-//   {
-//     id: 4,
-//     title: "Analytics Hub",
-//     shortDesc: "Real-time data analytics dashboard",
-//     description:
-//       "Engineered a high-performance analytics dashboard visualizing millions of real-time data points with predictive ML insights.",
-//     techStack: ["Python", "D3.js", "FastAPI", "Redis", "Docker"],
-//     liveUrl:   "#",
-//     sourceUrl: "#",
-//     category:  "Data",
-//   },
-//   {
-//     id: 5,
-//     title: "Portfolio Design System",
-//     shortDesc: "Modular component library for creatives",
-//     description:
-//       "Built an open-source design system with 50+ customizable components and accessibility-first architecture.",
-//     techStack: ["React", "Storybook", "Tailwind CSS", "Figma"],
-//     liveUrl:   "#",
-//     sourceUrl: "#",
-//     category:  "Design",
-//   },
-//   {
-//     id: 6,
-//     title: "HealthSync Mobile",
-//     shortDesc: "Cross-platform health tracking app",
-//     description:
-//       "Developed a cross-platform mobile app integrating wearable devices and AI-driven health insights.",
-//     techStack: ["React Native", "Firebase", "Node.js", "TensorFlow"],
-//     liveUrl:   "#",
-//     sourceUrl: "#",
-//     category:  "Mobile",
-//   },
-// ];
-
-// /* ─── SKILLS ─── */
-// // export const skillCategories = [
-// //   {
-// //     title: "Frontend",
-// //     color: "#a855f7",
-// //     skills: [
-// //       { name: "React",       icon: "Blocks",     level: 92 },
-// //       { name: "Next.js",     icon: "Globe",      level: 85 },
-// //       { name: "TypeScript",  icon: "FileType",   level: 80 },
-// //       { name: "JavaScript",  icon: "FileCode2",  level: 95 },
-// //       { name: "Tailwind",    icon: "Paintbrush", level: 90 },
-// //       { name: "Three.js",    icon: "Box",        level: 72 },
-// //     ],
-// //   },
-// //   {
-// //     title: "Backend & AI",
-// //     color: "#00e5ff",
-// //     skills: [
-// //       { name: "Node.js",     icon: "Server",     level: 88 },
-// //       { name: "Python",      icon: "Terminal",   level: 90 },
-// //       { name: "FastAPI",     icon: "Zap",        level: 82 },
-// //       { name: "MongoDB",     icon: "Database",   level: 85 },
-// //       { name: "OpenAI API",  icon: "Sparkles",   level: 88 },
-// //       { name: "LangChain",   icon: "Link",       level: 75 },
-// //     ],
-// //   },
-// //   {
-// //     title: "Design & Creative",
-// //     color: "#f000b8",
-// //     skills: [
-// //       { name: "Figma",         icon: "Figma",   level: 85 },
-// //       { name: "UI/UX Design",  icon: "Layout",  level: 80 },
-// //       { name: "Premiere Pro",  icon: "Film",    level: 78 },
-// //       { name: "After Effects", icon: "Sparkles",level: 72 },
-// //       { name: "Photoshop",     icon: "Image",   level: 75 },
-// //       { name: "Blender",       icon: "Shapes",  level: 65 },
-// //     ],
-// //   },
-// //   {
-// //     title: "DevOps & Cloud",
-// //     color: "#c084fc",
-// //     skills: [
-// //       { name: "AWS",      icon: "Cloud",            level: 78 },
-// //       { name: "Docker",   icon: "Container",        level: 80 },
-// //       { name: "Git",      icon: "GitBranch",        level: 92 },
-// //       { name: "CI/CD",    icon: "RefreshCcw",       level: 76 },
-// //       { name: "Firebase", icon: "Flame",            level: 85 },
-// //       { name: "Linux",    icon: "MonitorSmartphone",level: 82 },
-// //     ],
-// //   },
-// // ];
-
-// /*
-//   ADD THIS ICON FIELD to each entry in skillCategories inside your mock.js
-  
-//   Find your skillCategories array and add the icon property to each object.
-//   The icon name must match a Lucide icon (https://lucide.dev/icons)
-  
-//   Example structure:
-// */
-
-// export const skillCategories = [
-//   {
-//     title: "Frontend",
-//     icon:  "Layout",          // ← ADD THIS LINE to each category
-//     skills: [
-//       { name: "React",        icon: "Atom",       level: 90 },
-//       { name: "Next.js",      icon: "Triangle",   level: 82 },
-//       { name: "TypeScript",   icon: "FileCode",   level: 78 },
-//       { name: "Tailwind CSS", icon: "Wind",       level: 88 },
-//       { name: "Framer Motion",icon: "Sparkles",   level: 75 },
-//       { name: "Three.js",     icon: "Box",        level: 68 },
-//     ],
-//   },
-//   {
-//     title: "Backend & AI",
-//     icon:  "Server",          // ← ADD THIS
-//     skills: [
-//       { name: "Node.js",      icon: "Server",     level: 85 },
-//       { name: "Express",      icon: "Zap",        level: 82 },
-//       { name: "Python",       icon: "Code",       level: 88 },
-//       { name: "OpenAI API",   icon: "Bot",        level: 84 },
-//       { name: "LangChain",    icon: "Link",       level: 76 },
-//       { name: "FastAPI",      icon: "Rocket",     level: 74 },
-//     ],
-//   },
-//   {
-//     title: "Database",
-//     icon:  "Database",        // ← ADD THIS
-//     skills: [
-//       { name: "MongoDB",      icon: "Database",   level: 86 },
-//       { name: "PostgreSQL",   icon: "Table",      level: 78 },
-//       { name: "Redis",        icon: "Layers",     level: 70 },
-//       { name: "Firebase",     icon: "Flame",      level: 80 },
-//       { name: "Prisma",       icon: "GitBranch",  level: 72 },
-//     ],
-//   },
-//   {
-//     title: "Design & Creative",
-//     icon:  "Palette",         // ← ADD THIS
-//     skills: [
-//       { name: "Figma",        icon: "Figma",      level: 82 },
-//       { name: "GSAP",         icon: "Play",       level: 74 },
-//       { name: "CSS/SCSS",     icon: "Paintbrush", level: 88 },
-//       { name: "Blender",      icon: "Box",        level: 55 },
-//     ],
-//   },
-//   {
-//     title: "DevOps & Cloud",
-//     icon:  "Cloud",           // ← ADD THIS
-//     skills: [
-//       { name: "Docker",       icon: "Container",  level: 72 },
-//       { name: "AWS",          icon: "Cloud",      level: 68 },
-//       { name: "Vercel",       icon: "Triangle",   level: 88 },
-//       { name: "GitHub CI/CD", icon: "GitMerge",   level: 76 },
-//       { name: "Nginx",        icon: "Server",     level: 65 },
-//     ],
-//   },
-// ];
-
-// /*
-//   ─────────────────────────────────────────────────────────────
-//   INSTRUCTIONS:
-  
-//   1. Open your existing src/data/mock.js
-//   2. Find the skillCategories array
-//   3. Add the "icon" field (e.g. icon: "Layout") to each category object
-//      matching the values shown above
-//   4. Make sure each skill already has "icon" and "level" fields
-  
-//   If your skill objects are missing "icon" or "level", add them
-//   using Lucide icon names (https://lucide.dev/icons).
-//   ─────────────────────────────────────────────────────────────
-// */
-
-// /* ─── SOCIAL LINKS ─── */
-// export const socialLinks = [
-//   { name: "GitHub",   url: "https://github.com/Maayank18",                         icon: "Github"   },
-//   { name: "LinkedIn", url: "https://www.linkedin.com/in/mayank-garg-120a77214/",   icon: "Linkedin" },
-//   { name: "Email",    url: "mailto:gargmayank1805@gmail.com",                      icon: "Mail"     },
-// ];
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /* ═══════════════════════════════════════════════════════════════════
    mock.js  —  Single source of truth for all portfolio data
-   ─────────────────────────────────────────────────────────────────
-   HOW TO ADD A PROJECT SCREENSHOT:
-     1. Take a screenshot of your deployed project
-     2. Save it to  /public/screenshots/<filename>.png  (or .jpg / .webp)
-     3. Set  thumbnail: "/screenshots/<filename>.png"
-     4. If you have no screenshot yet, leave thumbnail as null —
-        the modal will automatically show the canvas animation fallback.
-═══════════════════════════════════════════════════════════════════ */
+   ═══════════════════════════════════════════════════════════════════ */
 
 /* ─── PERSONAL INFO ─────────────────────────────────────────────── */
 export const personalInfo = {
   name:      "Mayank Garg",
   firstName: "Mayank",
-  headline:  "Building What Matters.",
-  subtitle:  "Full Stack Engineer · AI/GenAI Developer · Creative Builder",
-  bio:       "I engineer intelligent, production-ready systems at the intersection of full-stack development and AI. From MERN-powered platforms to generative AI pipelines, I turn complex problems into elegant, impactful solutions.",
+  headline:  "Building High-Impact Systems.",
+  subtitle:  "AI Software Engineer · Backend Systems Architect · Ex-Research Intern @ IIT Ropar",
+  bio:       "AI Software Engineer & Backend Architect (Ex-Research Intern at IIT Ropar). I engineer high-performance distributed backends, real-time MERN & WebSocket architectures, and low-latency Voice AI & autonomous agent pipelines—translating complex algorithmic challenges into robust, production-ready systems.",
 
-  // Hero media — webm first (smaller), mp4 as fallback
+  // Hero media
   media: {
     type:     "video",
     sources:  [
-      { src: "/part1.webm", type: "video/webm" },
       { src: "/part1.mp4",  type: "video/mp4"  },
     ],
     poster:   "/hero-poster.jpg",
@@ -333,159 +26,174 @@ export const personalInfo = {
   email:    "gargmayank1805@gmail.com",
   github:   "https://github.com/Maayank18",
   linkedin: "https://www.linkedin.com/in/mayank-garg-120a77214/",
-  resume:   "#",   // TODO: replace "#" with your actual resume URL
+  resume:   "#",
 };
 
 /* ─── FILTER TABS ────────────────────────────────────────────────── */
 export const filterCategories = [
   "All",
-  "AI / ML",
+  "Generative AI",
   "Full Stack",
+  "AI Engineering",
   "Frontend",
-  // "Data",
-  // "Design",
-  "Mobile",
-  "AI",
-  "Generative AI"
 ];
 
 /* ─── PROJECTS ───────────────────────────────────────────────────── */
-/*
-  Fields:
-    id         (number)  — unique key, never change once set
-    title      (string)  — project name shown on card + modal
-    shortDesc  (string)  — 1-line shown on card (keep under 80 chars)
-    description(string)  — 2-3 sentence shown in modal
-    category   (string)  — must match one of filterCategories above
-    techStack  (array)   — show 4 on card, all in modal
-    thumbnail  (string|null) — path to screenshot in /public/screenshots/
-                               Set to null if screenshot not ready yet.
-                               Modal falls back to canvas animation when null.
-    liveUrl    (string)  — "#" until deployed
-    sourceUrl  (string)  — "#" until public
-*/
 export const projects = [
   {
     id:          1,
+    title:       "FloatGPT",
+    shortDesc:   "Ambient floating AI desktop assistant with screen awareness, voice control, and autonomous planning.",
+    description: "FloatGPT is a native floating AI desktop assistant for Windows featuring an interactive ambient orb summoned via global hotkey (Ctrl+Shift+Space). It integrates real-time window and screen awareness, voice and Hinglish conversational capability, system actions (app launch, memory status, active-window typing), autonomous goal planning, and document intelligence.",
+    category:    "Generative AI",
+    techStack:   ["Electron", "React", "TypeScript", "Node.js", "Gemini API", "Tailwind CSS"],
+    thumbnail:   "/FloatGPT.png",
+    liveUrl:     "https://floatgpt.vercel.app/",
+    sourceUrl:   "https://github.com/Maayank18/FloatGPT",
+  },
+  {
+    id:          2,
     title:       "CodeArena 1v1",
-    shortDesc:   "Real-time 1v1 coding battles with a live algorithm visualizer — because solving problems alone, without seeing your logic breathe, is too easy",
-    description: "CodeArena 1v1 is a real-time competitive coding platform where developers battle head-to-head solving algorithmic challenges, with live ELO-ranked matchmaking, a 60fps algorithm visualizer engine, and a full-stack admin control center — all built from scratch. Think LeetCode meets Chess.com",
+    shortDesc:   "Real-time 1v1 competitive coding battles with live 60fps algorithm visualizer and matchmaking.",
+    description: "CodeArena 1v1 is a real-time competitive coding arena where developers battle head-to-head solving algorithmic challenges. Features live ELO-ranked matchmaking, an interactive 60fps algorithm visualizer engine, WebSockets code synchronization, and an admin control center built from scratch.",
     category:    "Full Stack",
-    techStack:   ["React", "Node.js", "Python", "OpenAI", "MongoDB", "Socket.io"],
-    thumbnail:   "/CodeArena.png",    // TODO: "/screenshots/aivolutions.png"
+    techStack:   ["React", "Node.js", "Express", "Socket.io", "MongoDB", "Tailwind CSS"],
+    thumbnail:   "/CodeArena.png",
     liveUrl:     "https://code-arena-1v1.vercel.app/dashboard",
     sourceUrl:   "https://github.com/Maayank18",
   },
   {
-    id:          2,
-    title:       "Aivolutions Club",
-    shortDesc:   "End-to-end AI solutions powering innovation, automation, and growth.",
-    description: "A dynamic website for the college AI Society showcasing its departments, events, and initiatives. It features event highlights, an image gallery, and information about the community driving AI innovation on campus.",
-    category:    "Frontend",
-    techStack:   ["Next.js", "TypeScript", "Stripe", "PostgreSQL", "AWS", "Redis"],
-    thumbnail:   "/Aivolution_web.png",    // TODO: "/screenshots/ecommerce.png"
-    liveUrl:     "https://aivolutions.vercel.app/",
-    sourceUrl:   "https://github.com/Maayank18",
-  },
-  {
     id:          3,
-    title:       "CineAI Sentinal",
-    shortDesc:   "AI-powered movie insights with posters, cast, ratings, sentiment",
-    description: "CineAI is an AI-powered movie sentiment analyzer that aggregates movie details and reviews using TMDB and OMDB APIs.Users can enter a movie ID to view the poster, cast, ratings, and AI-analyzed audience sentiment in one place.",
-    category:    "AI",
-    techStack:   ["React", "Three.js", "GSAP", "Firebase", "Tailwind CSS"],
-    thumbnail:   "/CineAI.png",    // TODO: "/screenshots/triathlon.png"
-    liveUrl:     "https://ai-movie-sentiment-analyzer.vercel.app/",
+    title:       "Dig",
+    shortDesc:   "Automated AI research pipeline discovering, grounding, and organizing event sponsors & speakers.",
+    description: "Dig is an automated intelligence pipeline that crawls and researches the web for hackathon and conference sponsors, speakers, and leads. Translates natural language into multi-step web searches, extracts verifiable facts with source citations, enriches with verified contacts (LinkedIn, GitHub, Hunter.io emails), tracks outreach states, and drafts customized outreach pitches.",
+    category:    "Full Stack",
+    techStack:   ["React", "TypeScript", "Node.js", "Express", "SQLite", "Tavily AI", "Groq API"],
+    thumbnail:   "/Dig.png",
+    liveUrl:     "https://dig-ai.vercel.app/",
     sourceUrl:   "https://github.com/Maayank18",
   },
   {
     id:          4,
-    title:       "AI-Code-Reviewer Extension",
-    shortDesc:   "In-editor AI reviewer delivering instant one-click code fixes",
-    description: "An AI-powered VS Code extension that reviews code using the Gemini API to detect errors, bugs, and potential improvements.It can scan files or folders and provide instant suggestions with one-click in-place corrections.",
-    category:    "Generative AI",
-    techStack:   ["Python", "D3.js", "FastAPI", "Redis", "Docker", "PostgreSQL"],
-    thumbnail:   "/AI-code-reviewer.png",    // TODO: "/screenshots/analytics.png"
-    liveUrl:     "https://github.com/Maayank18/CodeReviewerPro",
-    sourceUrl:   "https://github.com/Maayank18",
+    title:       "AuraOS",
+    shortDesc:   "Biology-first mental health & somatic triage platform for executive function recovery.",
+    description: "AuraOS is a biology-first mental health and somatic triage platform designed for moments when executive function hits zero. Acoustically detects distress and vocal cadence, somatically regulates through interactive physics, and clinically triages using LangChain AI workflows and guardian clinical reporting.",
+    category:    "AI Engineering",
+    techStack:   ["React", "Electron", "Node.js", "Express", "LangChain", "Gemini Flash", "Tailwind CSS"],
+    thumbnail:   "/AuraOS.png",
+    liveUrl:     "https://github.com/Maayank18/Aura-OS",
+    sourceUrl:   "https://github.com/Maayank18/Aura-OS",
   },
   {
     id:          5,
-    title:       "Particle Animator",
-    shortDesc:   "Gesture controlled particle system creating immersive interactive art",
-    description: "A gesture-controlled particle animation system built using MediaPipe that tracks hand movements in real time.User gestures dynamically generate and control visually appealing particle effects on the screen.",
-    category:    "Frontend",
-    techStack:   ["React", "Storybook", "Tailwind CSS", "Figma", "Radix UI"],
-    thumbnail:   "/ParticleAnimator.png",    // TODO: "/screenshots/design-system.png"
-    liveUrl:     "https://github.com/Maayank18/ParticleAnimator",
-    sourceUrl:   "https://github.com/Maayank18",
+    title:       "AI-Code-Reviewer Extension",
+    shortDesc:   "In-editor AI code reviewer delivering instant static analysis and one-click in-place fixes.",
+    description: "An AI-powered developer tool and VS Code extension that reviews code in real time using the Gemini API. Automatically scans files or folders for bugs, security vulnerabilities, and code smell, delivering contextual suggestions with one-click in-place corrections directly in your editor.",
+    category:    "Generative AI",
+    techStack:   ["TypeScript", "VS Code API", "Node.js", "Gemini API", "AST Parser", "REST APIs"],
+    thumbnail:   "/AI-code-reviewer.png",
+    liveUrl:     "https://github.com/Maayank18/CodeReviewerPro",
+    sourceUrl:   "https://github.com/Maayank18/CodeReviewerPro",
   },
   {
     id:          6,
-    title:       "Meetzo",
-    shortDesc:   "Global language exchanges via real-time video and chat.",
-    description: "Meetzo is a global language learning and connectivity platform that enables users to communicate through real-time chat and video calls.It connects people worldwide to practice languages, share cultures, and build meaningful conversations.",
-    category:    "Full Stack",
-    techStack:   ["React Native", "Firebase", "Node.js", "TensorFlow Lite", "BLE"],
-    thumbnail:   "/Meetzo.png",    // TODO: "/screenshots/healthsync.png"
-    liveUrl:     "https://meetzo-nvcw.onrender.com/",
-    sourceUrl:   "https://github.com/Maayank18",
+    title:       "Particle Animator",
+    shortDesc:   "Gesture-controlled interactive particle simulation powered by computer vision and MediaPipe.",
+    description: "A real-time gesture-controlled particle animation system that tracks hand landmarks and motion using MediaPipe. User finger pinches, palms, and spatial gestures dynamically influence physical forces, gravitational fields, and visual particle vortexes in real-time.",
+    category:    "Frontend",
+    techStack:   ["React", "MediaPipe", "HTML5 Canvas", "Tailwind CSS", "Framer Motion"],
+    thumbnail:   "/ParticleAnimator.png",
+    liveUrl:     "https://github.com/Maayank18/ParticleAnimator",
+    sourceUrl:   "https://github.com/Maayank18/ParticleAnimator",
   },
 ];
 
 /* ─── SKILLS ─────────────────────────────────────────────────────── */
 export const skillCategories = [
   {
-  title: "Frontend",
-  color: "#a855f7",
-  skills: [
-    { name: "React",      icon: "Atom",        level: 92 },
-    { name: "Javascript", icon: "FileCode",    level: 90 },
-    { name: "Tailwind",   icon: "Wind",        level: 80 },
-    { name: "Three.js",   icon: "Box",         level: 80 },
-    { name: "HTML/CSS",   icon: "Code",        level: 90 },
-    { name: "Vite",       icon: "Zap",         level: 80 },
-  ],
-},
-  {
-    title: "Backend & AI",
-    color: "#00e5ff",
+    title: "Backend Engineering",
+    icon:  "Server",
+    color: "#00d4ff",
     skills: [
-      { name: "Node.js",     icon: "Server",      level: 88 },
-      { name: "LangChain",   icon: "Link",        level: 90 },
-      { name: "LangGraph",   icon: "GitBranch",   level: 85 },
-      { name: "Gemini API",  icon: "Bot",         level: 85 },
-      { name: "OpenAI API",  icon: "Brain",       level: 88 },
-      { name: "RAG",         icon: "Search",      level: 82 },
-      { name: "LLM",         icon: "Cpu",         level: 80 },
+      { name: "Node.js & Express.js",        icon: "Server",        level: 96 },
+      { name: "TypeScript Backend Arch",     icon: "FileCode",      level: 75 },
+      { name: "MongoDB & Aggregations",      icon: "Database",      level: 95 },
+      { name: "Backend Algorithms & Logic",  icon: "Binary",        level: 93 },
+      { name: "WebSockets & Socket.io",      icon: "Radio",         level: 92 },
+      { name: "RESTful APIs & Middleware",   icon: "Cpu",           level: 94 },
+      { name: "Redis Caching & Queues",      icon: "HardDrive",     level: 90 },
+      { name: "JWT Auth & Security (RBAC)",  icon: "ShieldCheck",   level: 92 },
     ],
   },
   {
-    title: "Database",
-    color: "#f000b8",
+    title: "AI Engineering & Agents",
+    icon:  "Bot",
+    color: "#f5ff40",
     skills: [
-      { name: "MongoDB",  icon: "Database", level: 93 },
-      { name: "MySQL",    icon: "Server", level: 80 },
-      { name: "VectorDB", icon: "Layers", level: 85 },
-      { name: "Pinecone", icon: "Network", level: 85 },
-      { name: "Neo4j",    icon: "Share2", level: 75 },
-      { name: "Redis",    icon: "HardDrive", level: 70 },
+      { name: "Autonomous Agents",     icon: "Bot",           level: 94 },
+      { name: "LangChain & LangGraph", icon: "Workflow",      level: 92 },
+      { name: "RAG & Vector Pipelines",icon: "Search",       level: 93 },
+      { name: "Gemini & OpenAI APIs",  icon: "Brain",         level: 95 },
+      { name: "Tool & Function Calling",icon: "Wand2",       level: 91 },
+      { name: "Claude API & Anthropic",icon: "Sparkles",     level: 90 },
+      { name: "Groq LPU Fast Inference",icon: "Zap",          level: 92 },
+      { name: "VectorDB (Pinecone/Chroma)", icon: "Layers",   level: 89 },
     ],
   },
   {
-  title: "DevOps & Cloud",
-  color: "#c084fc",
-  skills: [
-    { name: "Vercel",        icon: "Triangle",     level: 85 },
-    { name: "Render",        icon: "ServerCog",    level: 80 },
-    { name: "AWS",           icon: "Cloud",        level: 70 },
-    { name: "Docker",        icon: "Package",      level: 75 },
-    { name: "Git",           icon: "GitBranch",    level: 85 },
-    { name: "CI/CD",         icon: "Repeat",       level: 80 },
-    { name: "GitHub",        icon: "Github",       level: 85 },
-    { name: "Google Cloud",  icon: "CloudCog",     level: 80 },
-  ],
-}
+    title: "Voice AI & Multimodal",
+    icon:  "AudioWaveform",
+    color: "#ff3cac",
+    skills: [
+      { name: "Edge-TTS (Speech Synth)",icon: "AudioWaveform",level: 94 },
+      { name: "Whisper & WhisperFlow", icon: "Mic",          level: 92 },
+      { name: "Realtime Audio Streams",icon: "Radio",        level: 89 },
+      { name: "Voice Activity Detect (VAD)",icon: "Activity",level: 88 },
+      { name: "WebRTC Audio Channels", icon: "Network",      level: 86 },
+      { name: "Multimodal Vision + Audio",icon: "Sliders",   level: 90 },
+    ],
+  },
+  {
+    title: "AI Coding Agents & IDEs",
+    icon:  "Terminal",
+    color: "#38e8ff",
+    skills: [
+      { name: "Cursor AI",             icon: "Terminal",      level: 96 },
+      { name: "Claude (Anthropic)",    icon: "Sparkles",      level: 95 },
+      { name: "Google Antigravity",    icon: "Atom",          level: 94 },
+      { name: "GitHub Copilot",        icon: "Github",        level: 92 },
+      { name: "Codex & LLM Code Gen",  icon: "Code",          level: 90 },
+      { name: "Ollama / Local Models", icon: "Cpu",           level: 88 },
+    ],
+  },
+  {
+    title: "Core Software Engineering",
+    icon:  "Binary",
+    color: "#a855f7",
+    skills: [
+      { name: "System Design & Architecture", icon: "Layers",    level: 92 },
+      { name: "Object-Oriented Programming (OOP)", icon: "Box",  level: 94 },
+      { name: "Database Management (DBMS)",   icon: "Database",  level: 92 },
+      { name: "Operating Systems (OS)",       icon: "Cpu",       level: 90 },
+      { name: "Data Structures & Algos",      icon: "Binary",    level: 93 },
+      { name: "SDLC & Agile Methodologies",   icon: "Workflow",  level: 91 },
+      { name: "Computer Networks & Protocols",icon: "Network",   level: 89 },
+      { name: "Git & Version Control",        icon: "GitBranch", level: 94 },
+    ],
+  },
+  {
+    title: "Frontend & Systems UI",
+    icon:  "Atom",
+    color: "#4ade80",
+    skills: [
+      { name: "React 19 & Next.js",    icon: "Atom",          level: 88 },
+      { name: "TypeScript",            icon: "FileCode",      level: 75 },
+      { name: "Tailwind CSS",          icon: "Wind",          level: 87 },
+      { name: "HTML5 Canvas 2D/Physics",icon: "Activity",    level: 83 },
+      { name: "Framer Motion & UX",    icon: "Sparkles",      level: 84 },
+      { name: "Vite Bundling",         icon: "Zap",           level: 85 },
+    ],
+  },
 ];
 
 /* ─── SOCIAL LINKS ───────────────────────────────────────────────── */

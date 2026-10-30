@@ -406,25 +406,28 @@ const T = {
 
 const CatPill = memo(({ label }) => (
   <span style={{
-    display: "inline-block", padding: "3px 11px", borderRadius: 8,
+    display: "inline-flex", alignItems: "center", gap: 6,
+    padding: "4px 11px", borderRadius: 8,
     fontSize: 10, fontFamily: "'Syne',sans-serif", fontWeight: 700,
     textTransform: "uppercase", letterSpacing: "0.14em",
-    background: "rgba(245,255,64,0.09)",
-    border: `1px solid rgba(245,255,64,0.25)`,
+    background: "rgba(6,6,12,0.85)",
+    backdropFilter: "blur(8px)",
+    border: `1px solid rgba(245,255,64,0.32)`,
     color: T.yellowDim,
     whiteSpace: "nowrap",
   }}>
+    <span style={{ width: 5, height: 5, borderRadius: "50%", background: T.yellow, boxShadow: `0 0 6px ${T.yellow}` }} />
     {label}
   </span>
 ));
 
 const TechChip = memo(({ name }) => (
   <span style={{
-    padding: "4px 11px", borderRadius: 7, fontSize: 11,
+    padding: "4px 10px", borderRadius: 7, fontSize: 11,
     fontFamily: "'DM Sans',sans-serif",
-    background: "rgba(255,255,255,0.03)",
-    border: "1px solid rgba(255,255,255,0.08)",
-    color: T.text3,
+    background: "rgba(255,255,255,0.04)",
+    border: "1px solid rgba(255,255,255,0.09)",
+    color: "#a0aec0",
   }}>
     {name}
   </span>
@@ -477,7 +480,7 @@ const ModalHeader = memo(({ project }) => {
         />
       ) : (
         /* ── Canvas animation fallback ── */
-        <ProjectThumbnail category={project.category} height={MODAL_HEIGHT_PX} />
+        <ProjectThumbnail project={project} category={project.category} height={MODAL_HEIGHT_PX} />
       )}
 
       <FadeOverlay />
@@ -521,6 +524,7 @@ const ModalHeader = memo(({ project }) => {
 ═══════════════════════════════════════════════════════════════════ */
 const ProjectCard = memo(({ project, onRollComplete, index }) => {
   const [rolling, setRolling] = useState(false);
+  const [hovered, setHovered] = useState(false);
 
   const handleClick = useCallback(() => {
     if (rolling) return;
@@ -533,11 +537,13 @@ const ProjectCard = memo(({ project, onRollComplete, index }) => {
 
   const handleMouseEnter = useCallback((e) => {
     if (rolling) return;
-    e.currentTarget.style.borderColor = T.yellowBdrH;
-    e.currentTarget.style.boxShadow   = `0 8px 50px ${T.yellowGlow}, 0 0 28px rgba(0,212,255,0.06)`;
+    setHovered(true);
+    e.currentTarget.style.borderColor = "rgba(0,212,255,0.45)";
+    e.currentTarget.style.boxShadow   = `0 12px 50px rgba(0,212,255,0.12), 0 0 28px rgba(245,255,64,0.08)`;
   }, [rolling]);
 
   const handleMouseLeave = useCallback((e) => {
+    setHovered(false);
     e.currentTarget.style.borderColor = T.yellowBdr;
     e.currentTarget.style.boxShadow   = "0 4px 30px rgba(0,0,0,0.5)";
   }, []);
@@ -571,32 +577,76 @@ const ProjectCard = memo(({ project, onRollComplete, index }) => {
         transformStyle: "preserve-3d",
         borderRadius:   20,
         overflow:       "hidden",
-        background:     T.bgCard,
+        background:     "linear-gradient(180deg, #0a0a14 0%, #06060c 100%)",
         border:         `1px solid ${T.yellowBdr}`,
         boxShadow:      "0 4px 30px rgba(0,0,0,0.5)",
         transition:     "border-color 0.3s, box-shadow 0.3s",
       }}
     >
-      {/* ── Canvas animation header ── */}
-      <div style={{ position: "relative", width: "100%", height: CARD_HEIGHT_PX, overflow: "hidden" }}>
-        <ProjectThumbnail category={project.category} height={CARD_HEIGHT_PX} />
+      {/* ── Card media header ── */}
+      <div style={{ position: "relative", width: "100%", height: CARD_HEIGHT_PX, overflow: "hidden", background: "#06060c" }}>
+        {project.thumbnail ? (
+          <>
+            <img
+              src={project.thumbnail}
+              alt={`${project.title} preview`}
+              loading="lazy"
+              style={{
+                width: "100%",
+                height: "100%",
+                objectFit: "cover",
+                objectPosition: "top center",
+                display: "block",
+                transition: "transform 0.45s cubic-bezier(0.16, 1, 0.3, 1), filter 0.45s ease",
+                transform: hovered ? "scale(1.05)" : "scale(1)",
+                filter: hovered ? "brightness(1.02) contrast(1.05)" : "brightness(0.88) contrast(1)",
+              }}
+            />
+            {/* Animated Canvas Overlay on hover */}
+            <div
+              style={{
+                position: "absolute",
+                inset: 0,
+                opacity: hovered ? 1 : 0,
+                transition: "opacity 0.35s ease",
+                pointerEvents: "none",
+              }}
+            >
+              <ProjectThumbnail project={project} category={project.category} height={CARD_HEIGHT_PX} />
+            </div>
+          </>
+        ) : (
+          <ProjectThumbnail project={project} category={project.category} height={CARD_HEIGHT_PX} />
+        )}
         <FadeOverlay />
+        
+        {/* Category badge */}
         <div style={{ position: "absolute", top: 12, left: 12, zIndex: 2 }}>
           <CatPill label={project.category} />
         </div>
+
+        {/* Project sequence index */}
+        <span style={{
+          position: "absolute", top: 12, right: 14, zIndex: 2,
+          fontFamily: "'Syne', sans-serif", fontSize: 11, fontWeight: 800,
+          color: "rgba(255,255,255,0.22)", letterSpacing: "0.1em",
+        }}>
+          0{index + 1}
+        </span>
       </div>
 
       {/* ── Card body ── */}
       <div style={{ padding: "18px 20px 20px" }}>
         <h3 style={{
-          fontFamily: "'Syne',sans-serif", fontWeight: 700, fontSize: 16,
-          color: "#f0e6ff", marginBottom: 5, lineHeight: 1.3,
+          fontFamily: "'Syne',sans-serif", fontWeight: 700, fontSize: 17,
+          color: "#ffffff", marginBottom: 6, lineHeight: 1.3,
+          letterSpacing: "-0.01em",
         }}>
           {project.title}
         </h3>
 
         <p style={{
-          fontSize: 13, lineHeight: 1.65, color: T.text4, marginBottom: 14,
+          fontSize: 13, lineHeight: 1.65, color: "#94a3b8", marginBottom: 14,
           display: "-webkit-box", WebkitLineClamp: 2,
           WebkitBoxOrient: "vertical", overflow: "hidden",
         }}>
@@ -604,7 +654,7 @@ const ProjectCard = memo(({ project, onRollComplete, index }) => {
         </p>
 
         {/* Show first 4 chips only — "+N more" for the rest */}
-        <div style={{ display: "flex", flexWrap: "wrap", gap: 6, marginBottom: 14 }}>
+        <div style={{ display: "flex", flexWrap: "wrap", gap: 6, marginBottom: 16 }}>
           {project.techStack.slice(0, 4).map((t) => (
             <TechChip key={t} name={t} />
           ))}
@@ -614,16 +664,16 @@ const ProjectCard = memo(({ project, onRollComplete, index }) => {
         </div>
 
         <div style={{
-          borderTop: "1px solid rgba(255,255,255,0.04)", paddingTop: 12,
+          borderTop: "1px solid rgba(255,255,255,0.06)", paddingTop: 14,
           display: "flex", alignItems: "center", justifyContent: "space-between",
         }}>
           <span style={{
             fontFamily: "'Syne',sans-serif", fontSize: 11,
-            color: "rgba(245,255,64,0.38)", fontWeight: 600, letterSpacing: "0.08em",
+            color: "rgba(0,212,255,0.85)", fontWeight: 700, letterSpacing: "0.08em",
           }}>
-            Click to explore
+            Explore Architecture &amp; Demo
           </span>
-          <ExternalLink size={12} style={{ color: "rgba(245,255,64,0.32)" }} />
+          <ExternalLink size={13} style={{ color: "#00d4ff" }} />
         </div>
       </div>
     </motion.div>
